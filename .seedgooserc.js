@@ -3,7 +3,7 @@ const host = process.env.DB_HOST || "127.0.0.1"
 
 module.exports = {
 
-    modelBaseDirectory: "app_server/database/models", // model directory name
+    modelBaseDirectory: "app_api/models", // model directory name
   
     models: ["*.js", "!db.js"], // model matcher
   
