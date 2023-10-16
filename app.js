@@ -14,7 +14,8 @@ const contactRouter = require('./app_server/routes/contact');
 const mealsRouter = require('./app_server/routes/meals');
 const newsRouter = require('./app_server/routes/news');
 const roomsRouter = require('./app_server/routes/rooms');
-const apiRouter = require('./app_api/routes/index')
+const apiRouter = require('./app_api/routes/index');
+const { nextTick } = require('process');
 
 var app = express();
 
@@ -31,6 +32,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/api', (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
+  next()
+})
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
