@@ -1,4 +1,7 @@
 # CS465
+
+### Node 16.18.1
+
 ## Architecture
 ### Frontend Development
 In our full-stack project, we used a combination of frontend technologies including HTML, JavaScript, and Single-Page Application (SPA) principles.
